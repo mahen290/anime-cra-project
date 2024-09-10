@@ -6,15 +6,15 @@ import styled from 'styled-components';
 function Popular() 
 {
   const { popularAnime, isSearch } = useGlobalContext();
-      console.log(popularAnime);
+      console.log("PopularAnime", popularAnime);
 
   const conditionalRender = () => {
         if(!isSearch) 
         {
             return popularAnime.map((anime) => {
-                console.log(anime);
-                return <Link to = {`/anime/${anime.mal_id}`}>
-                    <img src = {anime.images.jpg.large_image_url} />
+                console.log("Anime", anime);
+                return <Link to = { `/anime/${anime.mal_id}` }>
+                    <img src = { anime.images.jpg.large_image_url } />
                 </Link>
             }
           )

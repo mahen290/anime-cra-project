@@ -8,7 +8,7 @@ function App()
 {
 
   const global = useGlobalContext();
-  console.log(global);
+  console.log("Global", global);
 
   return (
     <div>
