@@ -12,9 +12,9 @@ function Popular()
         if(!isSearch) 
         {
             return popularAnime.map( (anime) => {
-                console.log("Anime", anime);
-            return <Link to = {`/anime/${anime.mal_id}`} key={anime.mal_id} >
-                <img src = {anime.images.jpg.large_image_url} alt='' />
+                console.log( "Anime", anime );
+            return <Link to = { `/anime/${anime.mal_id}`} key = { anime.mal_id } >
+                <img src = { anime.images.jpg.large_image_url } alt = '' />
             </Link> 
             })
         }
@@ -59,6 +59,6 @@ const PopularStyled = styled.div`
               border-radius: 5px;
           }
       }
-    `;
+`;
 
 export default Popular;
