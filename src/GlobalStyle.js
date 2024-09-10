@@ -17,6 +17,8 @@ body
 {
     min-height: 100vh;
     max-height: auto;
+    color: #6c7983;
+    font-size: 1.2rem;
     // background: linear-gradient( rgb(230, 200, 170), rgb(180, 140, 80), rgb(130, 80, 20) );
 }
 h2
