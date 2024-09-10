@@ -41,7 +41,7 @@ function AnimeItems()
     useEffect(() => {
         getAnime(id);
         getCharacters(id);
-    }, []);
+    },);
 
   return (
 <AnimeItemsStyled>

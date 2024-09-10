@@ -13,14 +13,15 @@ function Popular()
         {
             return popularAnime.map( (anime) => {
                 console.log("Anime", anime);
-            return <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id} >
-                <img src={anime.images.jpg.large_image_url} alt='' />
+            return <Link to = {`/anime/${anime.mal_id}`} key={anime.mal_id} >
+                <img src = {anime.images.jpg.large_image_url} alt='' />
             </Link> 
             })
         }
     }
 
   return (
+    
     <PopularStyled>
       <div className = 'popular-anime'>
         { conditionalRender() }
@@ -35,10 +36,7 @@ const PopularStyled = styled.div`
       .popular-anime 
       {
           margin-top: 2rem;
-          padding-top: 2rem;
-          padding-bottom: 2rem;
-          padding-left: 5rem;
-          padding-left: 0;
+          padding: 1.66rem 0.75rem;
           width: 100%;
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

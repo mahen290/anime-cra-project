@@ -21,16 +21,6 @@ body
     font-size: 1.2rem;
     // background: linear-gradient( rgb(230, 200, 170), rgb(180, 140, 80), rgb(130, 80, 20) );
 }
-h2
-{
-    width: 100%;
-    height: 3rem;
-    margin: 1rem auto;
-    padding: 0.6rem;
-    background-color: bisque;
-    text-align: center;
-    color: green;
-}
 `;
 
 export default GlobalStyle;
