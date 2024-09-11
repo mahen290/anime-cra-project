@@ -7,8 +7,8 @@ const baseUrl = "https://api.jikan.moe/v4";
 // Now Action Begins
 
     const LOADING = "LOADING";
-    const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
     const SEARCH = "SEARCH";
+    const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
     const GET_AIRING_ANIME = "GET_AIRING_ANIME";
     const GET_UPCOMING_ANIME = "GET_UPCOMING_ANIME";
     
@@ -20,14 +20,19 @@ const baseUrl = "https://api.jikan.moe/v4";
         {
             case LOADING: 
                 return { ...state, loading: true }
+
             case GET_POPULAR_ANIME: 
                 return { ...state, popularAnime: action.payload, loading: false };
+
             case SEARCH: 
                 return { ...state, searchResults: action.payload, loading: false }; 
+
             case GET_AIRING_ANIME:
                     return { ...state, airingAnime: action.payload, loading: false };   
+
             case GET_UPCOMING_ANIME:
                 return { ...state, upcomingAnime: action.payload, loading: false };
+
             default: 
                 return state;    
         }
@@ -94,7 +99,7 @@ export const GlobalContextProvider = ({ children }) =>
     const searchAnime = async (anime) => 
     {
         dispatch({ type: LOADING });
-        const response = await fetch(`${baseUrl}/search/anime?q=${anime}&order_by=popularity&sort=asc&sfw`);
+        const response = await fetch(`${baseUrl}/anime?q=${anime}&order_by=popularity&sort=asc&sfw`);
         const data = await response.json();
         dispatch({ type: SEARCH, payload: data.data });
     }
@@ -124,7 +129,16 @@ export const GlobalContextProvider = ({ children }) =>
     }, [])
 
     return (
-        <GlobalContext.Provider value = {{ ...state, handleChange, handleSubmit, searchAnime, search }}>
+        <GlobalContext.Provider value = {{ 
+            ...state, 
+            handleChange, 
+            handleSubmit, 
+            searchAnime, 
+            search,
+            getPopularAnime,
+            getAiringAnime,
+            getUpcomingAnime
+        }}>
             { children }
         </GlobalContext.Provider>
     )
