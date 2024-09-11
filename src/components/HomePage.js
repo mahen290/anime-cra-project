@@ -19,10 +19,10 @@ function HomePage()
                 return <Popular rendered = { rendered } />
 
             case 'airing':
-                    return <Popular rendered={rendered} />
+                return <Popular rendered = {rendered} />
 
             case 'upcoming':
-                    return <UpComing rendered={rendered} />
+                return <UpComing rendered = {rendered} />
 
             default:
                 return <Popular rendered = { rendered } />   

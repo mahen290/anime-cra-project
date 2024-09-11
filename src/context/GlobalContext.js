@@ -88,7 +88,7 @@ export const GlobalContextProvider = ({ children }) =>
     const getPopularAnime = async () => 
     {
         dispatch({ type: LOADING });
-            const response = await fetch(`${baseUrl}/top/anime?filter = bypopularity`);
+            const response = await fetch(`${baseUrl}/top/anime?filter=bypopularity`);
             const data = await response.json();
             console.log(data.data);
         dispatch({ type: GET_POPULAR_ANIME, payload: data.data });
@@ -100,7 +100,7 @@ export const GlobalContextProvider = ({ children }) =>
     {
         dispatch({ type: LOADING });
         const response = await fetch(`${baseUrl}/anime?q=${anime}&order_by=popularity&sort=asc&sfw`);
-        const data = await response.json();
+        const data = await response.json(); 
         dispatch({ type: SEARCH, payload: data.data });
     }
 
@@ -109,7 +109,7 @@ export const GlobalContextProvider = ({ children }) =>
     const getAiringAnime = async () => 
     {
         dispatch({ type: LOADING });
-        const response = await fetch(`${baseUrl}/top/anime?filter = airing`);
+        const response = await fetch(`${baseUrl}/top/anime?filter=airing`);
         const data = await response.json();
         dispatch({ type: GET_AIRING_ANIME, payload: data.data });
     }
@@ -119,7 +119,7 @@ export const GlobalContextProvider = ({ children }) =>
     const getUpcomingAnime = async () => 
     {
         dispatch({ type: LOADING });
-        const response = await fetch(`${baseUrl}/top/anime?filter = upcoming`);
+        const response = await fetch(`${baseUrl}/top/anime?filter=upcoming`);
         const data = await response.json();
         dispatch({ type: GET_UPCOMING_ANIME, payload: data.data });
     }

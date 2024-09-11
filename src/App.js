@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Popular from './components/Popular';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AnimeItems from './components/AnimeItems';
 import { useGlobalContext } from './context/GlobalContext';
@@ -17,7 +16,7 @@ function App()
       <header> Anime Project With Create React App </header>
       <BrowserRouter>
         <Routes>
-          <Route path = '/' element = { <Popular /> } />
+          {/* <Route path = '/' element = { <Popular /> } /> */}
           <Route path = '/' element = { <HomePage /> } />
           <Route path = '/anime/:id' element = { <AnimeItems /> } />
         </Routes>
