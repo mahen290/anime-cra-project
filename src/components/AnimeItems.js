@@ -41,7 +41,7 @@ function AnimeItems()
     useEffect(() => {
         getAnime(id);
         getCharacters(id);
-    }, []);
+    },);
 
   return (
 <AnimeItemsStyled>
@@ -81,7 +81,7 @@ function AnimeItems()
     <div className = 'trailer-con'>
         { trailer?.embed_url && 
             <iframe 
-                src = {trailer?.embed_url} 
+                src = { trailer?.embed_url } 
                 title = "Inline frame example" 
                 width = "800"
                 height = "450"

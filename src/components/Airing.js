@@ -11,18 +11,18 @@ function Airing({ rendered })
     const conditionalRender = () => {
         if(!isSearch && rendered === "airing") 
         {
-            return airingAnime.map( (anime) => {
-            console.log(anime);
-                return <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id} >
-                    <img src={anime.images.jpg.large_image_url} alt= "" />
+            return airingAnime?.map( (anime) => {
+            console.log("Airing Anime", anime);
+                return <Link to = { `/anime/${anime.mal_id}` } key = { anime.mal_id } >
+                    <img src = { anime.images.jpg.large_image_url } alt = "" />
                 </Link>
             })
         }
         else 
         {
-            return searchResults.map( (anime) => {
-                return <Link to={`/anime/${anime.mal_id}`} key = {anime.mal_id} >
-                    <img src={anime.images.jpg.large_image_url} alt = "" />
+            return searchResults?.map( (anime) => {
+                return <Link to = { `/anime/${anime.mal_id}` } key = { anime.mal_id } >
+                    <img src = { anime.images.jpg.large_image_url } alt = "" />
                 </Link>
             })
         }

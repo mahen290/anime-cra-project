@@ -51,7 +51,7 @@ function HomePage()
                     setRendered('popular');
                     getPopularAnime();
                     }}>
-                    Popular Anime 
+                    Popular <i class = "fa-solid fa-fire"> </i>
                 </button>
             </div>  
 
@@ -84,7 +84,7 @@ function HomePage()
                         value = { search } onChange = { handleChange } />
                     <button type = 'submit'> Search </button>
                 </div>
-            <div className = 'search-results'> </div>
+                <div className = 'search-results'> </div>
             </form>
 
         </div>
@@ -95,7 +95,7 @@ function HomePage()
 }
 
 const HomePageStyle = styled.div`
-    background-color: rgb(202, 94, 51);
+    background-color: #eededd;
 
     main 
     {

@@ -17,13 +17,13 @@ function Gallery()
 
   useEffect( () => {
     getAnimePictures(id);
-  }, []);
+  }, [id]);
 
   return (
     <GalleryStyled>
 
       <div className = 'back'>
-        <Link to = "/"> back </Link>
+          <Link to = "/"> <i class = "fa-solid fa-arrow-left"> </i> Back To Home Page </Link>
       </div>
 
       <div className = 'big-image'>
@@ -62,22 +62,25 @@ const GalleryStyled = styled.div`
   flex-direction: column;
   align-items: center;
 
-  .back 
-  {
+.back 
+{
     position: absolute;
     top: 2rem;
     left: 2rem;
 
     a 
     {
-      font-weight: 600;
-      text-decoration: none;
-      color: #eb5757;
-    } 
-  }
+        font-weight: 900;
+        text-decoration: none;
+        color: #eb5757;
+        display: flex;
+        align-item: center;
+        gap: 0.5rem;
+    }
+} 
 
-  .big-image 
-  {
+.big-image 
+{
     display: inline-block;
     padding: 2rem;
     margin: 2rem 0;
@@ -88,12 +91,12 @@ const GalleryStyled = styled.div`
 
     img 
     {
-      width: 350px;
+        width: 350px;
     }
-  }
+}
     
-  .small-images
-  {
+.small-images
+{
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -105,14 +108,14 @@ const GalleryStyled = styled.div`
 
     img 
     {
-      width: 6rem;
-      height: 6rem;
-      object-fit: cover;
-      cursor: pointer;
-      border-radius: 5px;
-      border: 5px solid #e5e7eb;
+        width: 6rem;
+        height: 6rem;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 5px solid #e5e7eb;
     }
-  } 
+} 
 
 `;
 
