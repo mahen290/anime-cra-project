@@ -1,9 +1,10 @@
 import React from 'react';
-import { useGlobalContext } from '../context/global';
+import { useGlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Airing({ rendered }) {
+function Airing({ rendered }) 
+{
     const { airingAnime, isSearch, searchResults} = useGlobalContext();
     console.log(airingAnime);
 
@@ -12,16 +13,16 @@ function Airing({ rendered }) {
         {
             return airingAnime.map( (anime) => {
             console.log(anime);
-                return <Link to = { `/anime/${anime.mal_id}` } key = {anime.mal_id} >
-                    <img src = { anime.images.jpg.large_image_url } alt = '' />
+                return <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id} >
+                    <img src={anime.images.jpg.large_image_url} alt= "" />
                 </Link>
             })
         }
         else 
         {
             return searchResults.map( (anime) => {
-                return <Link to = { `/anime/${anime.mal_id}` } key = { anime.mal_id }>
-                    <img src = { anime.images.jpg.large_image_url } alt = "" />
+                return <Link to={`/anime/${anime.mal_id}`} key = {anime.mal_id} >
+                    <img src={anime.images.jpg.large_image_url} alt = "" />
                 </Link>
             })
         }

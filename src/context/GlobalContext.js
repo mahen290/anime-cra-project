@@ -11,6 +11,7 @@ const baseUrl = "https://api.jikan.moe/v4";
     const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
     const GET_AIRING_ANIME = "GET_AIRING_ANIME";
     const GET_UPCOMING_ANIME = "GET_UPCOMING_ANIME";
+    const GET_PICTURES = "GET_PICTURES";
     
 // Reducer Starts From Here 
 
@@ -24,15 +25,18 @@ const baseUrl = "https://api.jikan.moe/v4";
             case GET_POPULAR_ANIME: 
                 return { ...state, popularAnime: action.payload, loading: false };
 
-            case SEARCH: 
-                return { ...state, searchResults: action.payload, loading: false }; 
-
             case GET_AIRING_ANIME:
                     return { ...state, airingAnime: action.payload, loading: false };   
 
             case GET_UPCOMING_ANIME:
-                return { ...state, upcomingAnime: action.payload, loading: false };
-
+                        return { ...state, upcomingAnime: action.payload, loading: false };
+        
+            case SEARCH: 
+                return { ...state, searchResults: action.payload, loading: false }; 
+            
+            case GET_PICTURES:
+                    return { ...state, pictures: action.payload, loading: false };
+            
             default: 
                 return state;    
         }
@@ -45,8 +49,8 @@ export const GlobalContextProvider = ({ children }) =>
     const initialState = 
     {
         popularAnime: [],
-        upcomingAnime: [],
         airingAnime: [],
+        upcomingAnime: [],
         pictures: [],
         isSearch: false,
         searchResults: [],
@@ -94,16 +98,6 @@ export const GlobalContextProvider = ({ children }) =>
         dispatch({ type: GET_POPULAR_ANIME, payload: data.data });
     } 
 
-    // Ssearch Anime
-
-    const searchAnime = async (anime) => 
-    {
-        dispatch({ type: LOADING });
-        const response = await fetch(`${baseUrl}/anime?q=${anime}&order_by=popularity&sort=asc&sfw`);
-        const data = await response.json(); 
-        dispatch({ type: SEARCH, payload: data.data });
-    }
-
     // Fetch Airing Anime 
 
     const getAiringAnime = async () => 
@@ -124,6 +118,27 @@ export const GlobalContextProvider = ({ children }) =>
         dispatch({ type: GET_UPCOMING_ANIME, payload: data.data });
     }
 
+    
+    // Search Anime
+
+    const searchAnime = async (anime) => 
+    {
+        dispatch({ type: LOADING });
+        const response = await fetch(`${baseUrl}/anime?q=${anime}&order_by=popularity&sort=asc&sfw`);
+        const data = await response.json(); 
+        dispatch({ type: SEARCH, payload: data.data });
+    }
+
+    // Get Anime Pictures 
+
+    const getAnimePictures = async (id) => 
+    {
+        dispatch({ LOADING });
+        const response = await fetch(`${baseUrl}/characters/${id}/pictures`);
+        const data = await response.json();
+        dispatch({ type: GET_PICTURES, payload: data.data });
+    }
+
     useEffect(() => {
         getPopularAnime();
     }, [])
@@ -137,7 +152,8 @@ export const GlobalContextProvider = ({ children }) =>
             search,
             getPopularAnime,
             getAiringAnime,
-            getUpcomingAnime
+            getUpcomingAnime,
+            getAnimePictures
         }}>
             { children }
         </GlobalContext.Provider>

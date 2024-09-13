@@ -4,6 +4,7 @@ import Popular from './Popular';
 import { useGlobalContext } from '../context/GlobalContext';
 import styled from 'styled-components';
 import UpComing from './UpComing';
+import Airing from './Airing';
 
 function HomePage() 
 {
@@ -11,18 +12,17 @@ function HomePage()
 
     const [ rendered, setRendered ] = useState('popular');
 
-    const switchComponent = () => 
-    {
+    const switchComponent = () => {
         switch(rendered) 
         {
             case 'popular': 
                 return <Popular rendered = { rendered } />
 
             case 'airing':
-                return <Popular rendered = {rendered} />
+                return <Airing rendered = { rendered } />
 
             case 'upcoming':
-                return <UpComing rendered = {rendered} />
+                return <UpComing rendered = { rendered } />
 
             default:
                 return <Popular rendered = { rendered } />   
@@ -33,8 +33,8 @@ function HomePage()
     <HomePageStyle>
     <main>
 
-        <div className = 'logo'>
-            <h1>
+        <div className = "logo">
+            <h1 className = "Anime-Heading">
                 {   
                     rendered === 'popular' ? 'Popular Anime' : 
                     rendered === 'airing' ? 'Airing Anime' : 'Upcoming Anime'
@@ -110,6 +110,18 @@ const HomePageStyle = styled.div`
             align-items: center;
             justify-content: center;
             margin-bottom: 3rem;
+        }
+        
+        .Anime-Heading
+        {
+            width: 40%;
+            height: 5.6rem;
+            padding: 1.35rem;
+            background: skyblue;
+            border-radius: 33px;
+            font-size: 38px;
+            color: blue;
+            text-shadow: 1px 1px 1px black;
         }
 
         .search-container 
