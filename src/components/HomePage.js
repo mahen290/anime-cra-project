@@ -95,21 +95,21 @@ function HomePage()
 }
 
 const HomePageStyle = styled.div`
-    background-color: #ededed;
+    background-color: rgb(202, 94, 51);
 
     main 
     {
-        padding: 2rem 5rem;
-        width: 60%;
+        padding: 1.5rem;
+        width: 100%;
         margin: 0 auto;
-        transition: all .4s ease-in-out;
+        transition: all 0.85s ease-in-out;
 
         .logo 
         {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .search-container 
@@ -117,52 +117,61 @@ const HomePageStyle = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
            
             button 
             {
                 display: flex;
                 align-items: center;
-                gap: .5rem;
-                padding: .7rem 1.5rem;
+                gap: 1rem;
+                padding: 1rem;
                 outline: none;
-                border-radius: 30px;
-                font-size: 1.2rem;
-                background-color: #fff;
-                cursor: pointer;
-                transition: all .4s ease-in-out;
+                background-color: magenta;
+                border: 3px solid white;
+                border-radius: 15px;
                 font-family: inherit;
-                border: 5px solid #e5e7eb;
+                font-size: 1.17rem;
+                font-weight: bolder;
+                cursor: pointer;
+                transition: all 0.5s ease-in-out;
             }
+                button:hover
+                {
+                    background-color: yellow;
+                    color: magenta;
+                    border: 3px solid black;
+                }
             form 
             {
                 position: relative;
-                width: 100%;
+                width: 60%;
             
                 .input-control
                 {
                     position: relative;
-                    transition: all .4s ease-in-out;
+                    transition: all 1s ease-in-out;
                 }
                 .input-control input
                 {
-                    width: 100%;
-                    padding: .7rem 1rem;
+                    width: 78%;
+                    height: 5rem;
+                    padding: 0.5rem;
                     border: none;
                     outline: none;
-                    border-radius: 30px;
-                    font-size: 1.2rem;
+                    border-radius: 15px;
+                    font-size: 1.25rem;
                     background-color: #fff;
-                    border: 5px solid #e5e7eb;
                     transition: all .4s ease-in-out;
                 }
                 .input-control button 
                 {
                     position: absolute;
+                    height: 4.5rem;
                     right: 0;
                     top: 50%;
                     transform: translateY(-50%);
                 }
+                
             }
         }
     }

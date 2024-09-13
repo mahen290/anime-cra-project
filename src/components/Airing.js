@@ -1,46 +1,45 @@
 import React from 'react';
-import { useGlobalContext } from '../context/GlobalContext';
+import { useGlobalContext } from '../context/global';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function UpComing({ rendered }) 
-{
-    const { upcomingAnime, isSearch, searchResults} = useGlobalContext();
-    console.log("UpcomingAnime", upcomingAnime);
+function Airing({ rendered }) {
+    const { airingAnime, isSearch, searchResults} = useGlobalContext();
+    console.log(airingAnime);
 
     const conditionalRender = () => {
-        if(!isSearch && rendered === "upcoming") 
+        if(!isSearch && rendered === "airing") 
         {
-            return upcomingAnime.map( (anime) => {
-            console.log("Anime", anime);
-                return <Link to = { `/anime/${anime.mal_id}` } key = { anime.mal_id } >
-                    <img src = { anime.images.jpg.large_image_url} alt = '' />
+            return airingAnime.map( (anime) => {
+            console.log(anime);
+                return <Link to = { `/anime/${anime.mal_id}` } key = {anime.mal_id} >
+                    <img src = { anime.images.jpg.large_image_url } alt = '' />
                 </Link>
             })
-        } 
+        }
         else 
         {
             return searchResults.map( (anime) => {
                 return <Link to = { `/anime/${anime.mal_id}` } key = { anime.mal_id }>
-                    <img src = { anime.images.jpg.large_image_url} alt = '' />
+                    <img src = { anime.images.jpg.large_image_url } alt = "" />
                 </Link>
             })
         }
     }
 
   return (
-    <UpComingStyled>
-        <div className = "upcoming-anime">
+    <AiringStyled>
+        <div className = 'airing-anime'>
             { conditionalRender() }
         </div>
-    </UpComingStyled>
-    )
+    </AiringStyled>
+    ) 
 }
 
-const UpComingStyled = styled.div`
+const AiringStyled = styled.div`
     display: flex;
 
-    .upcoming-anime 
+    .airing-anime 
     {
         margin-top: 2rem;
         padding-top: 2rem;
@@ -60,7 +59,6 @@ const UpComingStyled = styled.div`
             border-radius: 7px;
             border: 5px solid #e5e7eb;
         }
-
         a img 
         {
             width: 100%;
@@ -71,4 +69,4 @@ const UpComingStyled = styled.div`
     }
 `;
 
-export default UpComing;
+export default Airing;

@@ -3,39 +3,37 @@ import { useGlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Popular({ rendered }) 
-{
-  const { popularAnime, isSearch, searchResults } = useGlobalContext();
-      console.log("Popular Anime", popularAnime);
+function Popular({ rendered }) {
+    const { popularAnime, isSearch, searchResults } = useGlobalContext();
+    console.log("Popular Anime", popularAnime);
 
-  const conditionalRender = () => {
-        if(!isSearch && rendered === "popular") 
+    const conditionalRender = () => {
+        if (!isSearch && rendered === "popular") 
         {
-            return popularAnime.map( (anime) => {
-                console.log("Anime", anime);
-            return <Link to = { `/anime/${anime.mal_id}`} key = { anime.mal_id } >
-                <img src = { anime.images.jpg.large_image_url } alt = '' />
-            </Link> 
+            return popularAnime.map((anime) => {
+            console.log("Anime", anime);
+                return <Link to = {`/anime/${anime.mal_id}`} key = {anime.mal_id} >
+                    <img src = {anime.images.jpg.large_image_url} alt = '' />
+                </Link>
             })
         }
-        else
+        else 
         {
-            return searchResults.map( (anime) => {
-            return <Link to = {`/anime/${anime.mal_id}`} key = {anime.mal_id}>
-                <img src = {anime.images.jpg.large_image_url} alt = " " />
-            </Link>
-        })
+            return searchResults.map((anime) => {
+                return <Link to = { `/anime/${anime.mal_id}` } key = { anime.mal_id }>
+                    <img src = { anime.images.jpg.large_image_url } alt = " " />
+                </Link>
+            })
         }
     }
 
-  return (
-    
-    <PopularStyled>
-      <div className = 'popular-anime'>
-        { conditionalRender() }
-      </div>
-    </PopularStyled>
-  )
+    return (
+        <PopularStyled>
+            <div className = 'popular-anime'>
+                { conditionalRender() }
+            </div>
+        </PopularStyled>
+    )
 }
 
 const PopularStyled = styled.div`
