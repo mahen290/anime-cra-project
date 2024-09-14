@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Popular from './Popular';
+import Airing from './Airing';
+import UpComing from './UpComing';
 import { useGlobalContext } from '../context/GlobalContext';
 import styled from 'styled-components';
-import UpComing from './UpComing';
-import Airing from './Airing';
 
 function HomePage() 
 {
@@ -51,7 +51,7 @@ return (
                 setRendered('popular');
                 getPopularAnime();
                 }}>
-                Popular Anime <i class = "fa-solid fa-fire"> </i>
+                Popular Anime <i className = "fa-solid fa-fire"> </i>
             </button>
         </div>  
 
@@ -77,6 +77,8 @@ return (
             </button>
         </div>
 
+        {/* Form & Input For User Searching By Anime Items  */}
+
         <form action = '' className = 'search-form' 
             onSubmit = { handleSubmit }>
             <div className = 'input-control'>
@@ -95,7 +97,7 @@ return (
 }
 
 const HomePageStyle = styled.div`
-    background-color: #eededd;
+background-color: #eededd;
 
 main 
 {
@@ -103,6 +105,13 @@ main
     width: 100%;
     margin: 0 auto;
     transition: all 0.85s ease-in-out;
+
+    // For Responsiveness WebPage 
+
+        @media screen and (max-width:1530px)
+        {
+            width: 94%;
+        }
 
     .logo 
     {
@@ -157,7 +166,7 @@ main
         form 
         {
             position: relative;
-            width: 60%;
+            width: 50%;
             
             .input-control
             {
@@ -167,16 +176,17 @@ main
 
             .input-control input
             {
-                width: 78%;
+                width: 86%;
                 height: 5rem;
                 padding: 0.5rem;
-                border: none;
+                border: 1px solid red;
                 outline: none;
                 border-radius: 15px;
                 font-size: 1.25rem;
                 background-color: #fff;
-                transition: all .4s ease-in-out;
+                transition: all .5s ease-in-out;
             }
+                
 
             .input-control button 
             {

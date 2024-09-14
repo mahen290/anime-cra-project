@@ -2,6 +2,7 @@ import React from 'react';
 import { useGlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Sidebar from './Sidebar';
 
 function UpComing({ rendered }) 
 {
@@ -33,12 +34,13 @@ function UpComing({ rendered })
         <div className = "upcoming-anime">
             { conditionalRender() }
         </div>
+        <Sidebar />
     </UpComingStyled>
     )
 }
 
 const UpComingStyled = styled.div`
-    display: flex;
+display: flex;
 
 .upcoming-anime 
 {

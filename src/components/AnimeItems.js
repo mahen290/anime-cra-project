@@ -79,7 +79,8 @@ function AnimeItems()
     <h3 className = 'title'> Trailer </h3>
 
     <div className = 'trailer-con'>
-        { trailer?.embed_url && 
+        {
+            trailer?.embed_url ?
             <iframe 
                 src = { trailer?.embed_url } 
                 title = "Inline frame example" 
@@ -87,10 +88,11 @@ function AnimeItems()
                 height = "450"
                 allow = 'accelerometer; autoplay; clipboard-write;      encrypted-media; gyroscope; picture-in-picture' 
                 allowFullScreen>
-            </iframe> }
+            </iframe> : <h3> Trailor Not Available </h3>
+        }
     </div>
 
-    <h4 className = 'title'> Characters </h4>
+    <h3 className = 'title'> Characters </h3>
 
     <div className = 'characters'>
         {
@@ -114,8 +116,8 @@ function AnimeItems()
 };
 
 const AnimeItemsStyled = styled.div`
-  padding: 3rem 18rem;
-  background-color: #ededed;
+padding: 3rem 18rem;
+background-color: #ededed;
 
 h2
 {
@@ -126,7 +128,7 @@ h2
     background: linear-gradient(to right, #a855f7, #27ae60);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: all .4s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     &:hover 
     {
@@ -175,7 +177,7 @@ h2
         border: 5px solid #e5e7eb;
         padding: 1.5rem;
         border-radius: 10px;
-        background-color: #ffffff;
+        background-color: bisque;
     }
 }
 
@@ -199,20 +201,21 @@ h2
 
     .anime-details 
     {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-      p 
-      {
-          display: flex;
-          gap: 1rem;
-      }
-      p span:first-child 
-      {
-          font-weight: 600;
-          color: #454e56;
-      }
+        p 
+        {
+            display: flex;
+            gap: 1rem;
+        }
+
+        p span:first-child 
+        {
+            font-weight: 600;
+            color: #454e56;
+        }
     }
 }
 
@@ -237,15 +240,18 @@ h2
       {
         width: 100%;
       }
+
       h5 
       {
         padding: .5rem 0;
         color: #454e56;
       }
+
       p 
       {
         color: #27ae60;
       }
+
       &:hover 
       {
         transform: translateY(-9px);

@@ -23,7 +23,10 @@ function Gallery()
     <GalleryStyled>
 
       <div className = 'back'>
-          <Link to = "/"> <i class = "fa-solid fa-arrow-left"> </i> Back To Home Page </Link>
+          <Link to = "/"> 
+              <i className = "fa-solid fa-arrow-left"> </i> 
+              Go Back Home  
+          </Link>
       </div>
 
       <div className = 'big-image'>
