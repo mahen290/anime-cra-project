@@ -165,8 +165,14 @@ main
 
         form 
         {
+
+                @media screen and (min-width:560px)
+                {
+                    width: 50%;
+                }
             position: relative;
             width: 50%;
+            
             
             .input-control
             {
@@ -185,7 +191,10 @@ main
                 font-size: 1.25rem;
                 background-color: #fff;
                 transition: all .5s ease-in-out;
+
+                
             }
+               
                 
 
             .input-control button 

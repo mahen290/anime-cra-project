@@ -41,9 +41,9 @@ function AnimeItems()
     useEffect(() => {
         getAnime(id);
         getCharacters(id);
-    },);
+    },[]);
 
-  return (
+return (
 <AnimeItemsStyled>
     <h2> { title } </h2>
 
