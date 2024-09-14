@@ -46,7 +46,6 @@ function AnimeItems()
 return (
 <AnimeItemsStyled>
     <h2> { title } </h2>
-
     <div className = 'details'>
         <div className = 'detail'>
             <div className = 'image'>
