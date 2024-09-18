@@ -17,23 +17,22 @@ body
 {
     min-height: 100vh;
     max-height: auto;
-    color: #6c7983;
+    background-color: #27ae60;
     font-size: 1.2rem;
 
     &::-webkit-scrollbar 
     {
-        width: 11px;
+        width: 10px;
     }
 
     &::-webkit-scrollbar-thumb
     {
-        background-color: #27ae60;
-        border-radius: 11px;
+        background-color: black;
     }
 
     &::-webkit-scrollbar-track 
     {
-        background-color: #ededed;
+        background-color: white;
     }
 }
 `;
